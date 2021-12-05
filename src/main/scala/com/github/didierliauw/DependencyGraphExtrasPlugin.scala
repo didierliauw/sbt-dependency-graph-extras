@@ -9,14 +9,14 @@ import sbt.Keys._
 import DependencyGraphExtras._
 
 object DependencyGraphExtrasPlugin extends AutoPlugin {
-  val compactDependencyGraph =
-    InputKey[Unit]("compactDependencyGraph",
-      "Shows a compact dependency graph where duplicated sub graphs are shown in separate blocks and " +
+  val compactDependencyTree =
+    InputKey[Unit]("compactDependencyTree",
+      "Shows a compact dependency tree where duplicated sub tree are shown in separate blocks and " +
         "if given dependency identifier show only the paths to that dependency")
   override def trigger = allRequirements
   override def projectSettings: Seq[Def.Setting[_]] =
     Seq(Compile, Test, IntegrationTest, Runtime, Provided, Optional).map { config =>
-      config / compactDependencyGraph := {
+      config / compactDependencyTree := {
         val g = (Compile / moduleGraph).value
         val graph = artifactParser.parsed.fold(Option(g)) {
           case ArtifactPattern(org, name, version) =>
