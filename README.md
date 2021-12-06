@@ -19,7 +19,7 @@ contains 50 lines.
 Put the following line in your `project/plugins.sbt` file.
 
 ```scala
-addSbtPlugin("com.github.didierliauw" % "sbt-dependency-graph-extras" % "0.1.0-SNAPSHOT")
+addSbtPlugin("com.github.didierliauw" % "sbt-dependency-graph-extras" % "0.1.0")
 ```
 
 ## Main task
