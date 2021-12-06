@@ -7,7 +7,7 @@ Compact dependency tree visualization for your project's dependencies.
 sbt-dependency-graph-extras uses the sbt-dependency-graph plugin to add the compactDependencyTree visualization.
 This visualization is similar to dependencyTree, but repeated dependencies (indicated with ```=>```) are only 
 displayed once in their own dependency sub tree block. 
-Optionally, it is possible to provide a dependency. If given, the tree will only contain
+Optionally, it is possible to provide a dependency as a parameter. If given, the tree will only contain
 paths from the root to that dependency.
 
 This visualization makes it easier to understand projects with a lot of repeated dependencies.
@@ -19,15 +19,16 @@ contains 50 lines.
 Put the following line in your `project/plugins.sbt` file.
 
 ```scala
-addSbtPlugin("com.github.didierliauw" % "sbt-dependency-graph-extras" % "0.1.0")
+addSbtPlugin("io.github.didierliauw" % "sbt-dependency-graph-extras" % "0.1.0")
 ```
 
 ## Main task
 
 The main task is ```compactDependencyTree [<organization> <module> <revision>?]```. 
-The output is similar to the dependencyTree visualization, except instead of one big tree with repeated dependencies.
-It will mark those repeated dependencies with ```=>```. Those dependencies will then displayed in a different block.
-If an optional artifact is provided then only paths from the root to the provided dependencies are considered.
+The output is similar to the ```dependencyTree``` visualization. The difference is that repeated dependencies 
+are marked with ```=>```. Those marked dependencies are then displayed in a separate block.
+So instead of one big tree with repeated dependencies there will be multiple trees.
+If an optional artifact is provided as a parameter then only paths from the root to the provided dependency are displayed.
 
 Example usage:
 ```
