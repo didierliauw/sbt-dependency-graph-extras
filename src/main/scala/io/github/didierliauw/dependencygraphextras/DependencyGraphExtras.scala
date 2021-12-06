@@ -1,4 +1,4 @@
-package com.github.didierliauw
+package io.github.didierliauw.dependencygraphextras
 
 import net.virtualvoid.sbt.graph.DependencyGraphSettings.ArtifactPattern
 import net.virtualvoid.sbt.graph.{Edge, Module, ModuleGraph, ModuleId}
